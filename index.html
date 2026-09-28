@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanguard Web Lab — Big-Brand Websites &amp; Graphics, ₹1,000-2,000</title>
+<meta name="description" content="Vanguard Web Lab builds custom animated websites and graphic design kits for small businesses — cafes, gyms, boutiques, clinics — starting at ₹1,000, delivered in 48 hours.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <p class="preloader-word" id="preloaderWord">BREWING PIXELS</p>
+    <div class="preloader-count-row">
+      <span id="preloaderCount">00</span><span class="preloader-percent">%</span>
+    </div>
+    <div class="preloader-bar-track">
+      <div class="preloader-bar-fill" id="preloaderBarFill"></div>
+    </div>
+  </div>
+</div>
+<div class="shutter-col" data-col="1"></div>
+<div class="shutter-col" data-col="2"></div>
+<div class="shutter-col" data-col="3"></div>
+<div class="shutter-col" data-col="4"></div>
+<div class="shutter-col" data-col="5"></div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-comet" id="cometTail"></div>
+<div class="cursor-ring" id="cursorRing"><span class="cursor-ring-text" id="cursorRingText"></span></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ============ BACKGROUND CANVAS ============ -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" data-magnetic>
+      <span class="nav-logo-star">✦</span>
+      VANGUARD WEB LAB.
+    </a>
+    <div class="nav-links">
+      <a href="#services" data-magnetic>Services</a>
+      <a href="#why-us" data-magnetic>Why Us</a>
+      <a href="#work" data-magnetic>The Lab</a>
+      <a href="#pricing" data-magnetic>Pricing</a>
+      <a href="#contact" data-magnetic>Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta" data-magnetic data-cursor-text="₹1K-2K">
+      <span class="nav-cta-fill"></span>
+      <span class="nav-cta-label">Book for ₹1,000</span>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Shourya &amp; Simon: Accepting 4 New Client Projects This Week
+      </div>
+
+      <h1 class="hero-headline" data-split-chars>Big-Brand Websites &amp; Graphics.<br><em>Pocket-Friendly ₹1,000 Pricing.</em></h1>
+
+      <p class="hero-sub">
+        We're Vanguard Web Lab — a two-person studio building fast, animated websites and scroll-stopping graphics
+        for cafes, gyms, boutiques and clinics across India. No agency markups, no monthly retainers. Just a
+        launch-ready storefront in 72 hours.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary" data-magnetic data-cursor-text="DRAG">
+          Start My Project — ₹1,000
+        </a>
+        <a href="#work" class="btn btn-ghost" data-magnetic data-cursor-text="EXPLORE">
+          See The Lab Showcase
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stack" id="heroStack">
+     <div class="hero-stack-rig">
+      <div class="hero-card hero-card-1">
+        <span class="hero-card-tag">WEB</span>
+        <div class="hero-card-bar"></div>
+        <div class="hero-card-bar short"></div>
+        <a href="#contact" class="hero-card-btn" data-magnetic data-cursor-text="EXPLORE">Order Now</a>
+      </div>
+      <div class="hero-card hero-card-2">
+        <span class="hero-card-tag">GRAPHIC</span>
+        <div class="hero-card-logo"></div>
+      </div>
+      <div class="hero-card hero-card-3">
+        <span class="hero-card-tag">MENU</span>
+        <div class="hero-card-bar"></div>
+        <div class="hero-card-bar"></div>
+        <div class="hero-card-bar short"></div>
+      </div>
+     </div>
+    </div>
+  
+    <svg class="wave-divider" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-choc" d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z"></path></svg>
+</section>
+
+  <!-- ============ 2. CRISS-CROSS MARQUEE ============ -->
+  <section class="marquee-zone">
+    <div class="marquee-row marquee-row-up">
+      <div class="marquee-track" data-marquee>
+        <span>48-HOUR DELIVERY</span><span>•</span><span>WEB DESIGNING</span><span>•</span>
+        <span>GRAPHIC DESIGNING</span><span>•</span><span>ZERO MONTHLY FEES</span><span>•</span>
+        <span>WHATSAPP INTEGRATION</span><span>•</span><span>STARTING AT ₹1,000</span><span>•</span>
+      </div>
+      <div class="marquee-track" data-marquee aria-hidden="true">
+        <span>48-HOUR DELIVERY</span><span>•</span><span>WEB DESIGNING</span><span>•</span>
+        <span>GRAPHIC DESIGNING</span><span>•</span><span>ZERO MONTHLY FEES</span><span>•</span>
+        <span>WHATSAPP INTEGRATION</span><span>•</span><span>STARTING AT ₹1,000</span><span>•</span>
+      </div>
+    </div>
+    <div class="marquee-row marquee-row-down">
+      <div class="marquee-track" data-marquee-rev>
+        <span>DIRECT FOUNDER ACCESS</span><span>•</span><span>MOBILE-FIRST</span><span>•</span>
+        <span>LOGOS &amp; POSTERS</span><span>•</span><span>GOOGLE MAPS SETUP</span><span>•</span>
+        <span>INSTAGRAM GRID KITS</span><span>•</span><span>SEO READY</span><span>•</span>
+      </div>
+      <div class="marquee-track" data-marquee-rev aria-hidden="true">
+        <span>DIRECT FOUNDER ACCESS</span><span>•</span><span>MOBILE-FIRST</span><span>•</span>
+        <span>LOGOS &amp; POSTERS</span><span>•</span><span>GOOGLE MAPS SETUP</span><span>•</span>
+        <span>INSTAGRAM GRID KITS</span><span>•</span><span>SEO READY</span><span>•</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. SERVICES ============ -->
+  <section class="services" id="services">
+
+    <div class="section-head">
+      <h2 data-split-chars>What We Build For You</h2>
+      <p>Two crafts, one lab. Pick one or bundle both — every project ships animated, mobile-first, and ready to sell.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card tilt-card" data-tilt data-tilt-max="7">
+        <div class="service-card-glare"></div>
+        <div class="service-card-border"></div>
+        <span class="service-num">01</span>
+        <h3>Web Designing</h3>
+        <p>A website built to convert browsers into customers — live in 72 hours, no code knowledge needed on your end.</p>
+        <ul class="service-pills">
+          <li>Custom animated landing pages</li>
+          <li>Business websites</li>
+          <li>Digital menus &amp; catalogs</li>
+          <li>Mobile-first optimization</li>
+          <li>Direct WhatsApp ordering</li>
+          <li>Google Maps &amp; SEO setup</li>
+        </ul>
+        <a href="#pricing" class="service-link" data-magnetic data-cursor-text="EXPLORE">See pricing →</a>
+      </article>
+
+      <article class="service-card tilt-card" data-tilt data-tilt-max="7">
+        <div class="service-card-glare"></div>
+        <div class="service-card-border"></div>
+        <span class="service-num">02</span>
+        <h3>Graphic Designing</h3>
+        <p>Consistent, scroll-stopping visuals for every platform your business shows up on — from menus to Instagram.</p>
+        <ul class="service-pills">
+          <li>Custom brand logos</li>
+          <li>Instagram grid kits</li>
+          <li>Promotional posters</li>
+          <li>Packaging &amp; menu design</li>
+          <li>Business cards</li>
+          <li>Social media banners</li>
+        </ul>
+        <a href="#pricing" class="service-link" data-magnetic data-cursor-text="EXPLORE">See pricing →</a>
+      </article>
+    </div>
+  
+    <svg class="wave-divider" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-creme" d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z"></path></svg>
+</section>
+
+  <!-- ============ 5. WHY US / BENTO ============ -->
+  <section class="why-us" id="why-us">
+    <div class="section-head section-head-light">
+      <h2 data-split-chars>Why Small Businesses Choose Vanguard</h2>
+      <p>No junior account managers, no jargon-filled proposals — just two builders who ship fast and answer their own phone.</p>
+    </div>
+
+    <div class="bento-grid">
+      <div class="bento-box bento-1 tilt-card" data-tilt>
+        <span class="bento-counter" data-counter data-target="72" data-unit=" Hrs">0</span>
+        <p>Average Turnaround</p>
+      </div>
+      <div class="bento-box bento-2 tilt-card" data-tilt>
+        <span class="bento-counter" data-counter data-target="100" data-suffix="%">0</span>
+        <p>Mobile Score</p>
+      </div>
+      <div class="bento-box bento-3 tilt-card" data-tilt>
+        <span class="bento-counter" data-counter data-target="0" data-prefix="₹">0</span>
+        <p>Hidden Maintenance Fees</p>
+      </div>
+      <div class="bento-box bento-4 tilt-card" data-tilt>
+        <span class="bento-static">Shourya and Simon</span>
+        <p>Direct Founder Access — Every Project</p>
+      </div>
+
+      <div class="bento-box bento-5 sandbox-box tilt-card" data-tilt data-tilt-max="1.5">
+        <p class="sandbox-label">Live Animation Sandbox</p>
+        <p class="sandbox-subtext">This is a plain, static mockup — the kind most ₹1,000 sites look like elsewhere. Click a toggle and watch what Vanguard actually ships instead.</p>
+        <div class="sandbox-mock" id="sandboxMock">
+          <div class="sandbox-mock-bar"></div>
+          <div class="sandbox-mock-hero"></div>
+          <div class="sandbox-mock-line"></div>
+          <div class="sandbox-mock-line short"></div>
+          <button type="button" class="sandbox-mock-btn" id="sandboxBuy" data-cursor-text="CLICK">Buy Now</button>
+          <div class="sandbox-toast" id="sandboxToast" aria-live="polite"></div>
+        </div>
+        <div class="sandbox-toggles">
+          <button class="sandbox-toggle" data-sandbox="motion" data-magnetic>
+            <span>+ Add 3D Motion</span>
+            <small>Cards tilt and glow on hover</small>
+          </button>
+          <button class="sandbox-toggle" data-sandbox="theme" data-magnetic>
+            <span>◐ Switch Theme</span>
+            <small>Instant dark-mode palette swap</small>
+          </button>
+          <button class="sandbox-toggle" data-sandbox="convert" data-magnetic>
+            <span>↑ Boost Conversions</span>
+            <small>Highlights the buy button + adds urgency</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <svg class="wave-divider" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-esp" d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z"></path></svg>
+</section>
+
+  <!-- ============ 6. HORIZONTAL PORTFOLIO ============ -->
+  <section class="work-pin" id="work">
+    <div class="work-pin-inner">
+      <div class="section-head">
+        <h2 data-split-chars>The Lab Showcase</h2>
+        <p>Concept builds crafted to show exactly what your ₹1,000-2,000 buys — keep scrolling to glide through.</p>
+      </div>
+
+      <div class="work-track" id="workTrack">
+        <article class="work-card">
+          <div class="work-card-visual work-visual-1"></div>
+          <span class="work-card-tag">Cafe</span>
+          <h3>Cafe Street Roastery &amp; Cafe</h3>
+          <p>Warm, single-page menu site with live "brewing now" badge and WhatsApp table booking.</p>
+          <span class="work-card-live">Live Preview</span>
+        </article>
+        <article class="work-card">
+          <div class="work-card-visual work-visual-2"></div>
+          <span class="work-card-tag">Fitness</span>
+          <h3>FitFlex Fitness Studio</h3>
+          <p>High-energy landing page with animated class timetable and trial-pass lead form.</p>
+          <span class="work-card-live">Live Preview</span>
+        </article>
+        <article class="work-card">
+          <div class="work-card-visual work-visual-3"></div>
+          <span class="work-card-tag">Boutique</span>
+          <h3>Good Luck Boutique</h3>
+          <p>Editorial lookbook grid with Instagram feed sync and festive collection countdown.</p>
+          <span class="work-card-live">Live Preview</span>
+        </article>
+        <article class="work-card">
+          <div class="work-card-visual work-visual-4"></div>
+          <span class="work-card-tag">Clinic</span>
+          <h3>Urban Dental Clinic</h3>
+          <p>Trust-building layout with doctor bios, animated service icons and one-tap appointment CTA.</p>
+          <span class="work-card-live">Live Preview</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. PRICING ============ -->
+  <section class="pricing" id="pricing">
+    <svg class="wave-divider wave-top" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-esp" d="M0,0 L1440,0 L1440,80 C1200,140 960,20 720,80 C480,140 240,20 0,80 Z"></path></svg>
+  
+
+    <div class="section-head section-head-light">
+      <h2 data-split-chars>Transparent Pricing, Zero Surprises</h2>
+      <p>Every plan is a flat, one-time price. No monthly hosting drama, no upsell calls.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card tilt-card" data-tilt data-tilt-max="7">
+        <div class="service-card-glare"></div>
+        <h3>Starter Presence</h3>
+        <p class="price-tag">₹1,000</p>
+        <ul class="price-list">
+          <li>Full 1-page custom animated website</li>
+          <li>Mobile optimization</li>
+          <li>WhatsApp &amp; call integration</li>
+          <li>Social links</li>
+          <li>72-hour delivery</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost btn-block" data-magnetic>Choose Starter</a>
+      </div>
+
+      <div class="price-card price-card-popular tilt-card" data-tilt data-tilt-max="7">
+        <div class="price-card-beam"></div>
+        <div class="service-card-glare"></div>
+        <span class="price-badge">Most Popular</span>
+        <h3>Business Growth Pack</h3>
+        <p class="price-tag">₹2,000</p>
+        <ul class="price-list">
+          <li>Multi-section ultra-animated website</li>
+          <li>Custom logo + banner graphic kit</li>
+          <li>Google Maps integration</li>
+          <li>Inquiry form</li>
+          <li>Priority delivery</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-block" data-magnetic>Choose Growth Pack</a>
+      </div>
+
+      <div class="price-card tilt-card" data-tilt data-tilt-max="7">
+        <div class="service-card-glare"></div>
+        <h3>Custom Graphic Pack</h3>
+        <p class="price-tag">Flexible</p>
+        <ul class="price-list">
+          <li>Logos</li>
+          <li>Posters</li>
+          <li>Social media bundles</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost btn-block" data-magnetic>Get a Quote</a>
+      </div>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <svg class="timeline-svg" viewBox="0 0 4 600" preserveAspectRatio="none">
+        <line class="timeline-line-bg" x1="2" y1="0" x2="2" y2="600"></line>
+        <line class="timeline-line-draw" id="timelineDraw" x1="2" y1="0" x2="2" y2="600"></line>
+      </svg>
+      <div class="timeline-step">
+        <span class="timeline-dot"></span>
+        <h4>1. Quick WhatsApp/Email Brief</h4>
+        <p>Tell us your business type and what you need — takes two minutes.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="timeline-dot"></span>
+        <h4>2. We Design &amp; Animate</h4>
+        <p>Shourya and team build your site or graphics while you carry on with business.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="timeline-dot"></span>
+        <h4>3. Launch in 72 Hours</h4>
+        <p>You get a live link, ready to share with customers.</p>
+      </div>
+    </div>
+  
+    <svg class="wave-divider" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-esp" d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z"></path></svg>
+</section>
+
+  <!-- ============ 8. FAQ + CONTACT ============ -->
+  <section class="faq" id="faq">
+    <div class="section-head">
+      <h2 data-split-chars>Questions, Answered</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" data-magnetic>
+          Do I need to pay anything monthly after launch?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>No. Every plan is a single flat payment. You only pay again if you want new pages or a redesign later.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-magnetic>
+          What do I need to send you to get started?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Your business name, a few photos, your menu/services, and any logo you already have. We'll guide you through a short WhatsApp brief.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-magnetic>
+          Can I request edits after the site is live?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Yes — small text and image swaps are included in your first week. Bigger changes are quoted separately.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" data-magnetic>
+          Do you only work with the businesses listed in your showcase?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Not at all — cafes, gyms, boutiques and clinics are just our most common clients. If you run a small business, we can likely build for you.</p></div>
+      </div>
+    </div>
+  
+    <svg class="wave-divider" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-creme" d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z"></path></svg>
+</section>
+
+  <section class="contact" id="contact">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2 data-split-chars>Let's Build Yours</h2>
+        <p class="contact-sub">Reach out directly — no forms required if you'd rather just message us.</p>
+
+        <button class="contact-card" data-copy="vanguardweblab@gmail.com" data-magnetic data-cursor-text="COPY">
+          <span class="contact-card-label">Email</span>
+          <span class="contact-card-value">vanguardweblab@gmail.com</span>
+          <span class="contact-card-icon">⧉</span>
+        </button>
+
+        <button class="contact-card" data-copy="shourya.vanguard@gmail.com" data-magnetic data-cursor-text="COPY">
+          <span class="contact-card-label">Founder Email</span>
+          <span class="contact-card-value">shourya.vanguard@gmail.com</span>
+          <span class="contact-card-icon">⧉</span>
+        </button>
+
+        <button class="contact-card" data-copy="simon.vanguard@gmail.com" data-magnetic data-cursor-text="COPY">
+          <span class="contact-card-label">Coder Email</span>
+          <span class="contact-card-value">simon.vanguard@gmail.com</span>
+          <span class="contact-card-icon">⧉</span>
+        </button>
+
+        <a href="https://instagram.com/vanguardweblab" target="_blank" rel="noopener" class="contact-card contact-card-insta" data-magnetic data-cursor-text="EXPLORE">
+          <span class="contact-card-label">Instagram</span>
+          <span class="contact-card-value">@vanguardweblab</span>
+          <span class="contact-card-icon">↗</span>
+        </a>
+
+        <a href="https://wa.me/910000000000" target="_blank" rel="noopener" class="btn btn-whatsapp" data-magnetic data-cursor-text="DRAG">
+          Chat On WhatsApp Now
+        </a>
+      </div>
+
+      <div class="contact-right">
+        <form class="estimator-form" id="estimatorForm">
+          <label class="form-field">
+            <span>Your Name</span>
+            <input type="text" name="name" placeholder="Priya Sharma" required>
+          </label>
+
+          <label class="form-field">
+            <span>Business Type</span>
+            <input type="text" name="business" placeholder="Cafe, gym, boutique, clinic…" required>
+          </label>
+
+          <div class="form-field">
+            <span>Service Needed</span>
+            <div class="pill-toggle-group" id="serviceToggles">
+              <button type="button" class="pill-toggle active" data-magnetic>Website</button>
+              <button type="button" class="pill-toggle" data-magnetic>Graphics</button>
+              <button type="button" class="pill-toggle" data-magnetic>Both</button>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <span>Budget: <strong id="budgetOutput">₹1,000</strong></span>
+            <input type="range" min="1000" max="2500" step="100" value="1000" id="budgetSlider" class="budget-slider">
+          </div>
+
+          <label class="form-field">
+            <span>Message</span>
+            <textarea name="message" rows="3" placeholder="Tell us a bit about what you need…"></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-block" data-magnetic id="launchBtn">
+            Launch My Project
+          </button>
+          <p class="form-success" id="formSuccess">Thanks! We'll reply on WhatsApp or email within a few hours.</p>
+        </form>
+      </div>
+    </div>
+  
+    <svg class="wave-divider" data-wave viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true"><path class="wave-path wave-fill-esp" d="M0,80 C240,140 480,20 720,80 C960,140 1200,20 1440,80 L1440,160 L0,160 Z"></path></svg>
+</section>
+
+  <footer class="footer">
+    <p>© 2026 Vanguard Web Lab. Built by Shourya &amp; Simon, one 48-hour sprint at a time.</p>
+  </footer>
+
+</main>
+
+<!-- confetti burst container -->
+<div id="confettiLayer"></div>
+
+<script src="canvas-physics.js"></script>
+<script src="gsap-animations.js"></script>
+</body>
+</html>
